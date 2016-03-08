@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Image Gallery</title>
+  </head>
+  <body data-ng-app="galleryApp">
+    <main data-ng-controller="GalleryController"  data-ng-init="getAll()">
+      <ul>
+        <li data-ng-repeat="gallery in imagegalleries">Name: {{gallery.name}},<br />
+          Description: {{gallery.description}}<br />
+          Url: <a href="{{gallery.urlLink}}">{{gallery.urlLink}}</a><br />
+          <button data-ng-click="deleteGallery(gallery)">Delete</button></li>
+      </ul>
+
+      <form data-ng-submit="createGallery(newGallery)">
+        <input data-ng-model="newGallery.name" type="text" placeholder="Name"/>
+        <input data-ng-model="newGallery.urlLink" type="text" placeholder="URL Link"/>
+        <input data-ng-model="newGallery.description" type="text" placeholder="Description"/>
+        <button type="submit">New Gallery</button>
+      </form>
+
+    </main>
+    <script src="bundle.js"></script>
+  </body>
+</html>
